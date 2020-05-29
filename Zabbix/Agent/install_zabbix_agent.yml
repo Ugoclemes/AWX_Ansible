@@ -1,21 +1,32 @@
 ---
 - name: Install Zabbix Agent
   hosts: all
-  #gather_facts: no
-  #remote_user: ec2_user
-  #become: yes
-  #become_user: root
- # vars_files:
- #   - ./zabbix_vars.yml
+  
   tasks:
   - name: Enable Zabbix Repos
     yum:
       name: https://repo.zabbix.com/zabbix/4.2/rhel/7/x86_64/zabbix-agent-4.2.4-1.el7.x86_64.rpm
       state: present
+  
   - name: Install Zabbix Agent
     yum:
       name: zabbix-agent
-      state: present
+      state: presen
+  
+  - name: delete /etc/zabbix/zabbix_agentd.conf
+    file:
+      path: /etc/zabbix/zabbix_agentd.conf
+      state: absent
+  
+  - name: create /etc/zabbix/zabbix_agentd.conf
+    copy:
+      dest: delete /etc/zabbix/zabbix_agentd.conf
+      mode: 600
+      owner: root
+      group: root
+      content: |
+        Server=10.161.69.107,10.161.69.157,10.161.69.68,stfzbxp01.stefanini.com.br,10.70.2.29
+  
   - name: Start Zabbix Agent
     systemd:
       name: zabbix-agent
