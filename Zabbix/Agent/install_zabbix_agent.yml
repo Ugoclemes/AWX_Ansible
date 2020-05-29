@@ -20,7 +20,7 @@
   
   - name: create /etc/zabbix/zabbix_agentd.conf
     copy:
-      dest: delete /etc/zabbix/zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
       mode: 600
       owner: root
       group: root
