@@ -1,0 +1,21 @@
+- name: Create File Zabbix Agent
+  hosts: all
+
+  - name: create /tmp/zabbix_agentd.conf
+    copy:
+      dest: /tmp/zabbix_agentd.conf
+      owner: root
+      group: root
+      mode: 777
+      content: |
+        Server=10.161.69.107,10.161.69.157,10.161.69.68,stfzbxp01.stefanini.com.br
+        ServerActive=stfzbxp01.stefanini.com.br
+        Hostname=$HOSTNAME
+        StartAgents=5
+        DebugLevel=3
+        PidFile=/var/run/zabbix/zabbix_agentd.pid
+        LogFile=/var/log/zabbix/zabbix_agentd.log
+        EnableRemoteCommands=1
+        AllowRoot=1
+        MaxLinesPerSecond=2
+        HostMetadataItem=system.uname
