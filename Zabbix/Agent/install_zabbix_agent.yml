@@ -11,7 +11,7 @@
   - name: Install Zabbix Agent
     yum:
       name: zabbix-agent
-      state: presen
+      state: present
   
   - name: delete /etc/zabbix/zabbix_agentd.conf
     file:
