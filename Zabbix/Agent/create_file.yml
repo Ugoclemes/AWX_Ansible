@@ -11,7 +11,7 @@
       content: |
         Server=10.161.69.107,10.161.69.157,10.161.69.68,stfzbxp01.stefanini.com.br
         ServerActive=stfzbxp01.stefanini.com.br
-        Hostname=$HOSTNAME
+        Hostname=$$HOSTNAME
         StartAgents=5
         DebugLevel=3
         PidFile=/var/run/zabbix/zabbix_agentd.pid
