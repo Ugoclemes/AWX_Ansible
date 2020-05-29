@@ -1,7 +1,7 @@
 - name: Create File Zabbix Agent
   hosts: all
 
-    tasks:
+  tasks:
   - name: create /tmp/zabbix_agentd.conf
     copy:
       dest: /tmp/zabbix_agentd.conf
