@@ -28,11 +28,11 @@
 #      owner: root
 #      group: root
 #      mode: 0644
-#  - name: Start Zabbix Agent
-#    systemd:
-#      name: zabbix-agent
-#      state: restarted
-#      enabled: yes
+  - name: Start Zabbix Agent
+    systemd:
+      name: zabbix-agent
+      state: restarted
+      enabled: yes
 #  - name: Make sure firewall has port 10050 open
 #    lineinfile:
 #      dest: /etc/sysconfig/iptables
