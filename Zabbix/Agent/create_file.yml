@@ -21,5 +21,5 @@
         MaxLinesPerSecond=2
         HostMetadataItem=system.uname
 
-  - steps:       
+  - name: echo
       run: "echo Hostname=$HOSTNAME >> /tmp/zabbix_agentd.conf"
