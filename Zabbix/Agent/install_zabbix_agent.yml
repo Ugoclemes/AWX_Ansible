@@ -36,7 +36,7 @@
         MaxLinesPerSecond=2
         HostMetadataItem=system.uname
 
-  - shell: "echo Hostname=$HOSTNAME >> /tmp/zabbix_agentd.conf"
+  - shell: "echo Hostname=$HOSTNAME >> /etc/zabbix/zabbix_agentd.conf"
   
   - name: Start Zabbix Agent
     systemd:
