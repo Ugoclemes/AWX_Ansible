@@ -22,4 +22,4 @@
         HostMetadataItem=system.uname
 
   - name: command      
-    command: echo Hostname=$HOSTNAME >> /etc/zabbix/zabbix_agentd.conf
+    command: "echo Hostname=$HOSTNAME >> /etc/zabbix/zabbix_agentd.conf"
