@@ -85,6 +85,4 @@
         dest: C:\Zabbix\scripts\
     
     - name: Run an executable and send data to the stdin for the executable
-        win_command: powershell.exe -
-          args:
-            stdin: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+        win_command: powershell.exe C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf 
