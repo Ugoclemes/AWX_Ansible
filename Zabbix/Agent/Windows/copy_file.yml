@@ -84,6 +84,5 @@
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/Limpeza_Maquina.bat
         dest: C:\Zabbix\scripts\
     
-    - name: Run an executable and send data to the stdin for the executable
-      win_psexec:
-        command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+    - name: Install Zabbix Agent
+        win_command: cmd.exe /c C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
