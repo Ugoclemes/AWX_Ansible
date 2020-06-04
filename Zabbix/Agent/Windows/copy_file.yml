@@ -5,3 +5,4 @@
   - win_copy:
       src: C:\TEMP\new.txt
       dest: C:\Zabbix\
+      remote_src: yes
