@@ -55,11 +55,11 @@
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
-        line: Server=10.161.69.107,10.161.69.157,$name,$ip
+        line: Server=10.161.69.107,10.161.69.157,{{ serverproxy}}
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
-        line: ServerActive=$name
+        line: ServerActive={{ serverproxyactive }}
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
@@ -67,7 +67,7 @@
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
-        line: Hostname=$hostName'
+        line: Hostname={{ hostname }}
      
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
@@ -82,4 +82,4 @@
         dest: C:\Zabbix\application\
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/Limpeza_Maquina.bat
-        dest: C:\Zabbix\application\
+        dest: C:\Zabbix\scripts\
