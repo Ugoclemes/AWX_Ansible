@@ -15,16 +15,16 @@
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\teste\zabbix_agentd.conf
-        line: StartAgents=10
-        line: DebugLevel=3
-              LogFile=c:\Zabbix\log\zabbix_agentd.log 
-              Timeout=30  
-              EnableRemoteCommands=1
-              LogRemoteCommands=1
-              Server=10.161.69.107,10.161.69.157,$name,$ip
-              ServerActive=$name
-              HostMetadataItem=system.uname
-               Hostname=$hostName
+        line: "StartAgents=10" \n
+              "DebugLevel=3"
+              "LogFile=c:\Zabbix\log\zabbix_agentd.log" 
+              "Timeout=30"  
+              "EnableRemoteCommands=1"
+              "LogRemoteCommands=1"
+              "Server=10.161.69.107,10.161.69.157,$name,$ip"
+              "ServerActive=$name"
+              "HostMetadataItem=system.uname"
+              "Hostname=$hostName"
      
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
