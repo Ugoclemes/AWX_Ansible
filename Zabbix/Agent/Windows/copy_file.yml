@@ -16,8 +16,8 @@
       win_lineinfile:
         path: C:\Zabbix\teste\zabbix_agentd.conf
         line: 
-          StartAgents=10  
-          DebugLevel=3  
+          StartAgents=10 /n  
+          DebugLevel=3 \/n
           LogFile=c:\Zabbix\log\zabbix_agentd.log 
           Timeout=30  
           EnableRemoteCommands=1
