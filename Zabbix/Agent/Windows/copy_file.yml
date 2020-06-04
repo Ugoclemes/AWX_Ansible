@@ -10,7 +10,7 @@
 #        src: \\stefanini.dom\NETLOGON\Agent_Zabbix\WINDOWS\GPO_INSTALL\application\zabbix_agentd.exe
 #        dest: C:\TEMP\
 #        remote_src: yes
-    - win_copy
+    - win_copy:
         src: /home/awx/zabbix.conf
         dest: C:\Zabbix\
 #        remote_src: yes
