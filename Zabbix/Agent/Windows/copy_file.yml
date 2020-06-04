@@ -67,7 +67,7 @@
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
-        line: Hostname={{ hostvars[COMPUTERNAME] }}
+        line: Hostname={{ ansible_facts[COMPUTERNAME] }}
      
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
