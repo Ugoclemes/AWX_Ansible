@@ -2,14 +2,11 @@
   hosts: all
 
   tasks:
-#  - win_copy:
-#      src: C:\TEMP\new.txt
-#      dest: C:\Zabbix\
-#      remote_src: yes
-#    - win_copy:
-#        src: \\stefanini.dom\NETLOGON\Agent_Zabbix\WINDOWS\GPO_INSTALL\application\zabbix_agentd.exe
-#        dest: C:\TEMP\
-#        remote_src: yes
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\teste
+        state: directory
+        
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\
