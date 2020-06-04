@@ -11,6 +11,8 @@
       win_file:
         path: C:\Zabbix\teste\zabbix_agentd.conf
         state: touch
+        content: 
+        Server=10.161.69.107,10.161.69.157
 
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
