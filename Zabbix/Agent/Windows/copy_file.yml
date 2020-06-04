@@ -4,5 +4,5 @@
   tasks:
   - name: Copy a single file where the source is on the remote host
       win_copy:
-        src: C:\Temp\new.txt
+        src: C:\TEMP\new.txt
         dest: C:\Zabbix\
