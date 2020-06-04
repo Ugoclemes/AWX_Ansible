@@ -6,15 +6,18 @@
       win_file:
         path: C:\Zabbix\teste
         state: directory
-        
+
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
-        dest: C:\Zabbix\
+        dest: C:\Zabbix\teste\
     
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_get.exe
-        dest: C:\Zabbix\
+        dest: C:\Zabbix\teste\
     
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_sender.exe
-        dest: C:\Zabbix\
+        dest: C:\Zabbix\teste\
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/Limpeza_Maquina.bat
+        dest: C:\Zabbix\teste\
