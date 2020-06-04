@@ -4,66 +4,82 @@
   tasks:
     - name: Create Folder
       win_file:
-        path: C:\Zabbix\teste
+        path: C:\Zabbix
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\application
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\config
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\log
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\scripts
         state: directory
 
     - name: Create file zabbix_agentd.conf
       win_file:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         state: touch
     
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: StartAgents=10
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: DebugLevel=3
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: LogFile=c:\Zabbix\log\zabbix_agentd.log
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: Timeout=30
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: EnableRemoteCommands=1
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: LogRemoteCommands=1
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: Server=10.161.69.107,10.161.69.157,$name,$ip
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: ServerActive=$name
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: HostMetadataItem=system.uname
     - name: Add line file zabbix_agentd.conf
       win_lineinfile:
-        path: C:\Zabbix\teste\zabbix_agentd.conf
+        path: C:\Zabbix\config\zabbix_agentd.conf
         line: Hostname=$hostName'
      
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
-        dest: C:\Zabbix\teste\
+        dest: C:\Zabbix\application\
     
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_get.exe
-        dest: C:\Zabbix\teste\
+        dest: C:\Zabbix\application\
     
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_sender.exe
-        dest: C:\Zabbix\teste\
+        dest: C:\Zabbix\application\
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/Limpeza_Maquina.bat
-        dest: C:\Zabbix\teste\
+        dest: C:\Zabbix\application\
