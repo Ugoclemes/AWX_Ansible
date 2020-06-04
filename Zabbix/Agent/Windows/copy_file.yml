@@ -86,3 +86,4 @@
     
     - name: Install Zabbix Agent
         win_command: 'C:\Zabbix\application\zabbix_agentd.exe --config C":\Zabbix\config\zabbix_agentd.conf --install'
+        register: zabbix_windows_install
