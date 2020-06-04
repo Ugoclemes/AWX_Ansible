@@ -2,7 +2,6 @@
   hosts: all
 
   tasks:
-  - name: Copy a single file where the source is on the remote host
-      win_copy:
-        src: C:\TEMP\new.txt
-        dest: C:\Zabbix\
+  - win_copy:
+      src: C:\TEMP\new.txt
+      dest: C:\Zabbix\
