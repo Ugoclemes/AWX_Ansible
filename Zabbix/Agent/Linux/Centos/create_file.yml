@@ -9,7 +9,7 @@
       group: root
       mode: 0644
       content: |
-        Server=10.161.69.107,10.161.69.157,10.161.69.68,stfzbxp01.stefanini.com.br
+        Server=10.161.69.107,10.161.69.157,10.161.69.68,stfzbxp01.stefanini.com.br, {{ server }}
         ServerActive=stfzbxp01.stefanini.com.br
         StartAgents=5
         DebugLevel=3
