@@ -7,6 +7,11 @@
         path: C:\Zabbix\teste
         state: directory
 
+    - name: Create file zabbix_agentd.conf
+      win_file:
+        path: C:\Zabbix\teste\zabbix_agentd.conf
+        state: touch
+
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\teste\
