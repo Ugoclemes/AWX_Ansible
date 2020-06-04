@@ -11,6 +11,13 @@
 #        dest: C:\TEMP\
 #        remote_src: yes
     - win_copy:
-        src: /home/awx/zabbix.conf
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\
-#        remote_src: yes
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_get.exe
+        dest: C:\Zabbix\
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_sender.exe
+        dest: C:\Zabbix\
