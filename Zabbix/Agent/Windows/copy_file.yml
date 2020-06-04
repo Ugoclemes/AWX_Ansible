@@ -16,7 +16,7 @@
       win_lineinfile:
         path: C:\Zabbix\teste\zabbix_agentd.conf
         line: 
-              "StartAgents=10
+              'StartAgents=10
               DebugLevel=3
               LogFile=c:\Zabbix\log\zabbix_agentd.log
               Timeout=30
@@ -25,7 +25,7 @@
               Server=10.161.69.107,10.161.69.157,$name,$ip
               ServerActive=$name
               HostMetadataItem=system.uname
-              Hostname=$hostName"
+              Hostname=$hostName'
      
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
