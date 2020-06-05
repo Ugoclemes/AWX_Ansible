@@ -20,5 +20,7 @@
         MaxLinesPerSecond=2
         HostMetadataItem=system.uname
         Hostname={{ hostvars['ansible_hostname'] }}
+  - debug:
+        msg: "{{ansible_all_ipv4_addresses}}"
 
 #  - shell: "echo Hostname=$HOSTNAME >> /tmp/zabbix_agentd.conf"
