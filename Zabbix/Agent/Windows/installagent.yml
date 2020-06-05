@@ -10,4 +10,4 @@
         win_service:
           name: Zabbix Agent
           start_mode: auto
-         state: started
+          state: started
