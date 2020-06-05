@@ -25,7 +25,7 @@
       group: root
       mode: 0644
       content: |
-        Server=10.161.69.107,10.161.69.157,{{ serverproxy }} 
+        Server={{serverzabbix}},{{ serverproxy }} 
         ServerActive={{ serverproxyactive }}
         StartAgents=5
         DebugLevel=3

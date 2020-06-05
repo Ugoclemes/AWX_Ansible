@@ -9,8 +9,8 @@
       group: root
       mode: 0644
       content: |
-        Server={{serverzabbix}},stfzbxp01.stefanini.com.br,{{server}}
-        ServerActive=stfzbxp01.stefanini.com.br
+        Server={{serverzabbix}},{{serveproxy}}
+        ServerActive={{serveproxyactive}}
         StartAgents=5
         DebugLevel=3
         PidFile=/var/run/zabbix/zabbix_agentd.pid
