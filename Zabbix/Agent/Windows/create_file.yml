@@ -9,4 +9,4 @@
     - name: Add IP address of all hosts to all hosts
       win_lineinfile:
         path: C:\TEMP\new.txt
-        line: {{ ansible_facts['nodename'] }}
+        line: {{ ansible_facts['ansible_hostname'] }}
