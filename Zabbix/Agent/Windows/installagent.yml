@@ -1,0 +1,8 @@
+- name: Install Zabbix Agent - Windows Server
+  hosts: all
+
+  tasks:
+#    - name: Install Zabbix Agent
+#        win_shell: "C:\Zabbix\application\zabbix_agentd.exe --config C:\Zabbix\config\zabbix_agentd.conf --install"
+    - name: Install Zabbix Agent
+        win_shell: dir
