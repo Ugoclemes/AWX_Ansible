@@ -1,4 +1,4 @@
-- name: Copy File
+- name: Install Zabbix Agent - Windows Server
   hosts: all
 
   tasks:
