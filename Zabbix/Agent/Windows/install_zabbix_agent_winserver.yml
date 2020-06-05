@@ -85,7 +85,7 @@
         dest: C:\Zabbix\scripts\
     
     - name: Install Zabbix Agent
-        win_command: "{{zabbixinstall}}"
+        win_shell: "{{zabbixinstall}}"
 
 #        register: zabbix_windows_install
 
