@@ -5,6 +5,6 @@
     - name: Add line file new.txt
       win_lineinfile:
         path: C:\TEMP\new.txt
-        line: Hostname={{ hostvars['ansible_hostname'] }}
-    - debug:
-        msg: "{{ansible_all_ipv4_addresses}}"
+        line: Hostname={{ansible_hostname}}
+#    - debug:
+#        msg: "{{ansible_all_ipv4_addresses}}"

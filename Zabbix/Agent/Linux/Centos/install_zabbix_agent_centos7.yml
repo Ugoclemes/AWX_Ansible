@@ -35,9 +35,8 @@
         #AllowRoot=1
         MaxLinesPerSecond=2
         HostMetadataItem=system.uname
+        Hostname={{ansible_hostname}}
 
-  - shell: "echo Hostname=$HOSTNAME >> /etc/zabbix/zabbix_agentd.conf"
-  
   - name: Start Zabbix Agent
     systemd:
       name: zabbix-agent
