@@ -2,7 +2,8 @@
   hosts: all
 
   tasks:
-    - name: Install Zabbix Agent
-        win_command: "C:\Zabbix\application\zabbix_agentd.exe /i /c C:\Zabbix\config\zabbix_agentd.conf"
 #    - name: Install Zabbix Agent
-#      win_command: whoami
+#        win_command: "C:\Zabbix\application\zabbix_agentd.exe /i /c C:\Zabbix\config\zabbix_agentd.conf"
+    - name: Install Zabbix Agent
+      win_command: whoami
+      register: whoami_out
