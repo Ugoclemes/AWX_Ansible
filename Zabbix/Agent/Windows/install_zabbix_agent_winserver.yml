@@ -85,7 +85,9 @@
         dest: C:\Zabbix\scripts\
     
     - name: Install Zabbix Agent
-        win_command: (C:\Zabbix\application\zabbix_agentd.exe --config C:\Zabbix\config\zabbix_agentd.conf --install)
+        win_command: zabbix_agentd.exe --config C:\Zabbix\config\zabbix_agentd.conf --install
+        args:
+          chdir: C:\Zabbix\application\
 #        register: zabbix_windows_install
 
 #    - name: "Windows | Set service startup mode to auto and ensure it is started"
