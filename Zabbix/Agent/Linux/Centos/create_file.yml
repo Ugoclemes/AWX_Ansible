@@ -20,7 +20,11 @@
         MaxLinesPerSecond=2
         HostMetadataItem=system.uname
         Hostname={{ansible_hostname}}
-  - debug:
-        msg: "{{ansible_all_ipv4_addresses}}"
+        ######################################################################
+        #MONITORA SIP
+        UserParameter=itens_svx[*],perl /etc/zabbix/scripts/itens_svx.pl $1 $2
+
+#  - debug:
+#        msg: "{{ansible_all_ipv4_addresses}}"
 
 #  - shell: "echo Hostname=$HOSTNAME >> /tmp/zabbix_agentd.conf"
