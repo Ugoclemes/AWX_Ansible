@@ -1,0 +1,7 @@
+- name: Inventory nmap
+  hosts: all
+
+  tasks:
+    plugin: nmap
+    strict: False
+    address: {{rangeip}}/24
