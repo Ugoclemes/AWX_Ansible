@@ -43,8 +43,3 @@
   - shell: "/etc/init.d/zabbix-agent start"
   - shell: "chkconfig zabbix-agent on"
 
-#  - name: Start Zabbix Agent
-#    systemd:
-#      name: zabbix-agent
-#      state: restarted
-#      enabled: yes
