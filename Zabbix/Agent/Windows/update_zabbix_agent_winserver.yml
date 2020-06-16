@@ -9,7 +9,17 @@
     - name: Delete Zabbix Agent
       win_command: sc delete "Zabbix Agent"
       register: startzabbix_out
-     
+
+    - name: Delete Files App Zabbix Agent
+      win_file:
+        path: C:\Zabbix\application\
+        state: absent
+
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\application
+        state: directory
+         
     - win_copy:
         src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\application\
