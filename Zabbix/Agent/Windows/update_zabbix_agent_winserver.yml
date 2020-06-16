@@ -1,0 +1,34 @@
+- name: Install Zabbix Agent - Windows Server
+  hosts: all
+
+  tasks:
+    - name: Stop Zabbix Agent
+      win_command: sc stop "Zabbix Agent"
+      register: startzabbix_out
+
+    - name: Delete Zabbix Agent
+      win_command: sc delete "Zabbix Agent"
+      register: startzabbix_out
+     
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_agentd.exe
+        dest: C:\Zabbix\application\
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_get.exe
+        dest: C:\Zabbix\application\
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/zabbix_sender.exe
+        dest: C:\Zabbix\application\
+    - win_copy:
+        src: /var/lib/awx/projects/_11__install_zabbix_agent/Zabbix/Agent/Windows/Limpeza_Maquina.bat
+        dest: C:\Zabbix\scripts\
+
+    - name: Install Zabbix Agent
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+      register: installzabbix_out
+    
+    - name: Start Zabbix Agent
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out

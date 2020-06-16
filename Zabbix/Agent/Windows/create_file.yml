@@ -2,9 +2,13 @@
   hosts: all
 
   tasks:
-    - name: Add line file new.txt
-      win_lineinfile:
-        path: C:\TEMP\new.txt
-        line: Hostname={{ansible_hostname}}
+#    - name: Add line file new.txt
+#      win_lineinfile:
+#        path: C:\TEMP\new.txt
+#        line: Hostname={{ansible_hostname}}
+    - name: Delete Files App Zabbix Agent
+      win_file:
+        path: C:\TEMPS\new.txt
+        state: absent
 #    - debug:
 #        msg: "{{ansible_all_ipv4_addresses}}"
