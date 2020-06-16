@@ -40,8 +40,11 @@
         #MONITORA SIP
         UserParameter=itens_svx[*],perl /etc/zabbix/scripts/itens_svx.pl $1 $2
 
-  - name: Start Zabbix Agent
-    systemd:
-      name: zabbix-agent
-      state: restarted
-      enabled: yes
+  - shell: "/etc/init.d/zabbix-agent start"
+  - shell: "chkconfig zabbix-agent on"
+
+#  - name: Start Zabbix Agent
+#    systemd:
+#      name: zabbix-agent
+#      state: restarted
+#      enabled: yes
