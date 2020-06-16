@@ -34,7 +34,7 @@
         EnableRemoteCommands=1
         #AllowRoot=1
         MaxLinesPerSecond=2
-        HostMetadataItem=system.uname
+        HostMetadata=SVX
         Hostname={{ansible_hostname}}
         ######################################################################
         #MONITORA SIP
