@@ -9,8 +9,6 @@
       group: root
       mode: 0644
       content: |
-        Server={{serverzabbix}},{{serveproxy}}
-        ServerActive={{serveproxyactive}}
         StartAgents=5
         DebugLevel=3
         PidFile=/var/run/zabbix/zabbix_agentd.pid
