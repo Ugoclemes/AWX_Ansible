@@ -7,9 +7,9 @@
         path: C:\TEMPS\new.txt
         line: Hostname={{ansible_hostname}}
 
-    - name: Delete Files App Zabbix Agent
-      win_file:
-        path: C:\TEMPS
-        state: absent
+#    - name: Delete Files App Zabbix Agent
+#      win_file:
+#        path: C:\TEMPS
+#        state: absent
 #    - debug:
 #        msg: "{{ansible_all_ipv4_addresses}}"
