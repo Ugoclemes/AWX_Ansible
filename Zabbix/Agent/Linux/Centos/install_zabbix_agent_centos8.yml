@@ -25,8 +25,8 @@
       group: root
       mode: 0644
       content: |
-        Server={{serverzabbix}},stfzbxp01.stefanini.com.br
-        ServerActive=stfzbxp01.stefanini.com.br
+        Server={{serverzabbix}},{{ serverproxy }} 
+        ServerActive={{ serverproxyactive }}
         StartAgents=5
         DebugLevel=3
         PidFile=/var/run/zabbix/zabbix_agentd.pid
@@ -36,7 +36,7 @@
         MaxLinesPerSecond=2
         Timeout=30
         HostMetadataItem=system.uname
-        Hostname={{ansible_hostname}}
+        HostnameItem=system.hostname
 
   - name: Start Zabbix Agent
     systemd:

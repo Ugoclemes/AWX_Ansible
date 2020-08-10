@@ -36,7 +36,7 @@
         MaxLinesPerSecond=2
         Timeout=30
         HostMetadataItem=system.uname
-        Hostname={{ansible_hostname}}
+        HostnameItem=system.hostname
 
   - name: Start Zabbix Agent
     systemd:
