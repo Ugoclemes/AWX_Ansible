@@ -77,7 +77,7 @@
         src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
         dest: C:\Zabbix\application\
     - win_copy:
-        src: /tmp/Limpeza_Maquina.bat
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/Limpeza_Maquina.bat
         dest: C:\Zabbix\scripts\
 
     - name: Install Zabbix Agent
