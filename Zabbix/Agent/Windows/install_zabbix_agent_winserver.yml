@@ -66,7 +66,7 @@
         line: HostnameItem=system.hostname
      
     - win_copy:
-        remote_src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\application\
     
     - win_copy:

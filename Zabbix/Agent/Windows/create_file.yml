@@ -6,6 +6,10 @@
       win_lineinfile:
         path: C:\TEMPS\new.txt
         line: Hostname={{ansible_hostname}}
+    
+    - win_copy:
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
+        dest: C:\TEMPS
 
 #    - name: Delete Files App Zabbix Agent
 #      win_file:
