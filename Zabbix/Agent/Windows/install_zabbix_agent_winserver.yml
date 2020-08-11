@@ -65,25 +65,25 @@
         path: C:\Zabbix\config\zabbix_agentd.conf
         line: HostnameItem=system.hostname
      
-#    - win_copy:
-#        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
-#        dest: C:\Zabbix\application\
+    - win_copy:
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
+        dest: C:\Zabbix\application\
     
-#    - win_copy:
-#        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_get.exe
-#        dest: C:\Zabbix\application\
+    - win_copy:
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_get.exe
+        dest: C:\Zabbix\application\
     
-#    - win_copy:
-#        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
-#        dest: C:\Zabbix\application\
+    - win_copy:
+        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
+        dest: C:\Zabbix\application\
     - win_copy:
         src: /tmp/Limpeza_Maquina.bat
         dest: C:\Zabbix\scripts\
 
-#    - name: Install Zabbix Agent
-#      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
-#      register: installzabbix_out
+    - name: Install Zabbix Agent
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+      register: installzabbix_out
     
-#    - name: Start Zabbix Agent
-#      win_command: sc start "Zabbix Agent"
-#      register: startzabbix_out
+    - name: Start Zabbix Agent
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out
