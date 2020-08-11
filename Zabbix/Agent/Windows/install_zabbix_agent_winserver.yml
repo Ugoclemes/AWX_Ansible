@@ -66,18 +66,18 @@
         line: HostnameItem=system.hostname
      
     - win_copy:
-        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
         dest: C:\Zabbix\application\
     
     - win_copy:
-        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_get.exe
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_get.exe
         dest: C:\Zabbix\application\
     
     - win_copy:
-        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
         dest: C:\Zabbix\application\
     - win_copy:
-        src: /var/lib/docker/data/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/Limpeza_Maquina.bat
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/Limpeza_Maquina.bat
         dest: C:\Zabbix\scripts\
 
     - name: Install Zabbix Agent
