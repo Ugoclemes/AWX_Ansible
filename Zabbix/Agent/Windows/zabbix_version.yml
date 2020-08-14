@@ -2,6 +2,6 @@
   hosts: all
 
   tasks:
-    - name: Install Zabbix Agent
+    - name: Check Version Zabbix Agent
       win_command: C:\Zabbix\application\zabbix_agentd.exe -v
       register: installzabbix_out
