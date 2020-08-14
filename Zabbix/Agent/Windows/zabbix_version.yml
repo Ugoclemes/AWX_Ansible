@@ -3,5 +3,5 @@
 
   tasks:
     - name: Check Version Zabbix Agent
-      win_command: C:\Zabbix\application\zabbix_agentd.exe -v
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -V
       register: installzabbix_out
