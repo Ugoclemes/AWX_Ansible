@@ -1,0 +1,7 @@
+- name: Version Zabbix Agent - Windows Server
+  hosts: all
+
+  tasks:
+    - name: Install Zabbix Agent
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -v
+      register: installzabbix_out
