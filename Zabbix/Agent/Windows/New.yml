@@ -2,10 +2,6 @@
   hosts: all
 
   tasks:
-    - name: Delete Zabbix Agent
-      win_command: sc delete "Zabbix Agent"
-      register: startzabbix_out
-
     - name: Delete Files App Zabbix Agent
       win_file:
         path: C:\Zabbix\config\zabbix_agentd.conf
