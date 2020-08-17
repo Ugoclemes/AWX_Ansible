@@ -12,7 +12,7 @@
 
     - name: Delete Folder Zabbix Agent
       win_file:
-        path: C:\zabbix\
+        path: C:\Zabbix\
         state: absent
          
     - name: Create Folder
