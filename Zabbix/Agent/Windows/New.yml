@@ -2,57 +2,10 @@
   hosts: all
 
   tasks:
-    - name: Delete Files App Zabbix Agent
-      win_file:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        state: absent
-
-    - name: Create file zabbix_agentd.conf
-      win_file:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        state: touch
-    
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: StartAgents=10
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: DebugLevel=3
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: LogFile=c:\Zabbix\log\zabbix_agentd.log
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: Timeout=30
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: AllowKey=system.run[*]
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: Server={{serverzabbix}},{{ serverproxy }}
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: ServerActive={{ serverproxyactive }}
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: HostMetadataItem=system.uname
-    - name: Add line file zabbix_agentd.conf
-      win_lineinfile:
-        path: C:\Zabbix\config\zabbix_agentd.conf
-        line: HostnameItem=system.hostname
-
-    - name: Install Zabbix Agent
-      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
-      register: installzabbix_out
-    
+  - name: Stop Zabbix Agent
+      win_command: sc stop "Zabbix Agent"
+      register: startzabbix_out
+      
     - name: Start Zabbix Agent
       win_command: sc start "Zabbix Agent"
       register: startzabbix_out
