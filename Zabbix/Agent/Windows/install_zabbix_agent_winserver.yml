@@ -25,7 +25,7 @@
 
     - win_copy:
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.conf
-        dest: C:\Zabbix\
+        dest: C:\Zabbix\config\
 
     - name: Edit zabbix_agentd.conf
       win_lineinfile:
