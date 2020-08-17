@@ -1,7 +1,0 @@
-- name: Install Zabbix Agent - Windows Server
-  hosts: all
-
-  tasks:
-    - name: Start Zabbix Agent
-      win_command: sc start "Zabbix Agent"
-      register: startzabbix_out
