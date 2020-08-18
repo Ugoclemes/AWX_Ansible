@@ -2,4 +2,4 @@
   hosts: all
 
   tasks:
-  - shell: "zabbix_agentd -V"
+  - shell: "ps -ef | grep zabbix"
