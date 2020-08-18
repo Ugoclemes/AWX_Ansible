@@ -3,4 +3,6 @@
 
   tasks:
   - name: Zabbix execute 
-    command: "ps -ef | grep zabbix"
+    ignore_errors: yes
+    shell: "ps -ef | grep zabbix"
+    register: running_processes
