@@ -4,4 +4,3 @@
   tasks:
   - name: Zabbix execute 
     command: "ps -ef | grep zabbix"
-    register: zabbix
