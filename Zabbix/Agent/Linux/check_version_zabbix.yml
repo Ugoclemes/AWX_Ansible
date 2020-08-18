@@ -1,0 +1,5 @@
+- name: Check Version Zabbix Agent
+  hosts: all
+
+  tasks:
+  - shell: "zabbix_agentd -V"
