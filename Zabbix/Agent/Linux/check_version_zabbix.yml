@@ -2,4 +2,6 @@
   hosts: all
 
   tasks:
-  - shell: "ps -ef | grep zabbix"
+  - name: Zabbix execute 
+    command: "ps -ef | grep zabbix"
+    register: zabbix
