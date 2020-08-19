@@ -1,5 +1,5 @@
 ---
-- name: Update Zabbix Agent 5.0.0
+- name: Install Zabbix Agent 5.0.0
   hosts: all
   
   tasks:
