@@ -23,7 +23,7 @@
 
   - copy:
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
-        dest: C:\Zabbix\application\
+        dest: /etc/zabbix/
   
   - name: Edit zabbix_agentd.conf
     lineinfile:
