@@ -28,5 +28,6 @@
 
   - name: Start Zabbix agent
     shell: "/etc/init.d/zabbix-agent start"
-  - name: Enable Service Zabbix Agent
-    shell: "chkconfig zabbix-agent on"
+# Verificar como habilitar
+#  - name: Enable Service Zabbix Agent
+#    shell: "chkconfig zabbix-agent on"
