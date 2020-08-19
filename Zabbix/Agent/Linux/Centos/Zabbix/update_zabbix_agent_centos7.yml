@@ -34,7 +34,7 @@
     lineinfile:
       path: /etc/zabbix/zabbix_agentd.conf
       regexp: '^Server=127.0.0.1'
-      line: Server={{serverzabbix}},{{ serverproxy }}
+      line:  ServerActive={{ serverproxyactive }}
 
   - name: Start Zabbix Agent
     systemd:
