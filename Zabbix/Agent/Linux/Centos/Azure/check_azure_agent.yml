@@ -1,0 +1,7 @@
+- name: Check Version Azure Agent
+  hosts: all
+
+  tasks:
+  - name: Ckeck Version Azure Agent
+    shell: "waagent -version"
+    
