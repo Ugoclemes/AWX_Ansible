@@ -33,7 +33,7 @@
   - name: Edit zabbix_agentd.conf
     lineinfile:
       path: /etc/zabbix/zabbix_agentd.conf
-      regexp: '^Server=127.0.0.1'
+      regexp: '^ServerActive=127.0.0.1'
       line:  ServerActive={{ serverproxyactive }}
 
   - name: Start Zabbix Agent
