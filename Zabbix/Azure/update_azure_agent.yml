@@ -1,0 +1,14 @@
+- name: Check Version Azure Agent
+  hosts: all
+
+  tasks:
+  - copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/setup.py
+        dest: /tmp/
+  
+  - name: Upgrade Azure Agent
+    shell: "python /tmp/setup.py install --force"
+
+  - name: Upgrade Azure Agent
+    shell: "systemctl restart waagent"
+    
