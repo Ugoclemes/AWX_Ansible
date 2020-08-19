@@ -2,25 +2,12 @@
   hosts: all
 
   tasks:
-  - name: create /tmp/zabbix_agentd.conf
-    copy:
-      dest: /tmp/zabbix_agentd.conf
-      owner: root
-      group: root
-      mode: 0644
-      content: |
-        StartAgents=5
-        DebugLevel=3
-        PidFile=/var/run/zabbix/zabbix_agentd.pid
-        LogFile=/var/log/zabbix/zabbix_agentd.log
-        EnableRemoteCommands=1
-        AllowRoot=1
-        MaxLinesPerSecond=2
-        HostMetadataItem=system.uname
-        Hostname={{ansible_hostname}}
-        ######################################################################
-        #MONITORA SIP
-        UserParameter=itens_svx[*],perl /etc/zabbix/scripts/itens_svx.pl $1 $2
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /tmp/zabbix_agentd.conf
+      regexp: '^Server=Zabbix server'
+      line: Server=zbxprd02.qualicorp.com.br
+
 
 #  - debug:
 #        msg: "{{ansible_all_ipv4_addresses}}"

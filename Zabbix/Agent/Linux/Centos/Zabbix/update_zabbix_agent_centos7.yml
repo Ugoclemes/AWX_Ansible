@@ -1,0 +1,45 @@
+---
+- name: Install Zabbix Agent
+  hosts: all
+  
+  tasks:
+  - name: Enable Zabbix Repos
+    yum:
+      name: https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-agent-5.0.0-1.el7.x86_64.rpm
+      state: present
+  
+  - name: Install Zabbix Agent
+    yum:
+      name: zabbix-agent
+      state: present
+  
+  - name: delete /etc/zabbix/zabbix_agentd.conf
+    file:
+      path: /etc/zabbix/zabbix_agentd.conf
+      state: absent
+  
+  - name: create /etc/zabbix/zabbix_agentd.conf
+    copy:
+      dest: /etc/zabbix/zabbix_agentd.conf
+      owner: root
+      group: root
+      mode: 0644
+      content: |
+        Server={{serverzabbix}},{{ serverproxy }} 
+        ServerActive={{ serverproxyactive }}
+        StartAgents=5
+        DebugLevel=3
+        PidFile=/var/run/zabbix/zabbix_agentd.pid
+        LogFile=/var/log/zabbix/zabbix_agentd.log
+        EnableRemoteCommands=1
+        #AllowRoot=1
+        MaxLinesPerSecond=2
+        Timeout=30
+        HostMetadataItem=system.uname
+        HostnameItem=system.hostname
+
+  - name: Start Zabbix Agent
+    systemd:
+      name: zabbix-agent
+      state: restarted
+      enabled: yes
