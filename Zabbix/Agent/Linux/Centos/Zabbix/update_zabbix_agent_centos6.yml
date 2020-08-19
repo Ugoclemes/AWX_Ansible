@@ -5,10 +5,13 @@
   tasks:
   - name: Unistall Zabbix Agent
     shell: rpm -e zabbix-agent-*
+  
+  - name: Unistall Zabbix Agent
+    shell: rpm -e zabbix-release-*
     
   - name: Enable Zabbix Repos
     yum:
-      name: https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-agent-5.0.0-1.el7.x86_64.rpm
+      name: https://repo.zabbix.com/zabbix/5.0/rhel/6/x86_64/zabbix-agent-5.0.0-1.el6.x86_64.rpm
       state: present
   
   - name: Install Zabbix Agent
@@ -36,8 +39,5 @@
       regexp: '^ServerActive=127.0.0.1'
       line:  ServerActive={{ serverproxyactive }}
 
-  - name: Start Zabbix Agent
-    systemd:
-      name: zabbix-agent
-      state: restarted
-      enabled: yes
+  - shell: "/etc/init.d/zabbix-agent start"
+  - shell: "chkconfig zabbix-agent on"
