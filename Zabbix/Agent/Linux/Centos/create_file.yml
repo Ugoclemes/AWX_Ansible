@@ -2,10 +2,24 @@
   hosts: all
 
   tasks:
+  - name: delete /etc/zabbix/zabbix_agentd.conf
+    file:
+      path: /etc/zabbix/zabbix_agentd.conf
+      state: absent
+
+  - copy: Copy file zabbix_agentd.conf
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
+        dest: /etc/zabbix/
+  
   - name: Edit zabbix_agentd.conf
     lineinfile:
-      path: /tmp/zabbix_agentd.conf
-      regexp: '^Server=Zabbix server'
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^Server=127.0.0.1'
+      line: Server=10.45.1.8,10.45.1.3,zbxprd02.qualicorp.com.br
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^ServerActive=127.0.0.1'
       line: Server=zbxprd02.qualicorp.com.br
 
 

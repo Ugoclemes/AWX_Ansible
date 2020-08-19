@@ -32,7 +32,7 @@
         PidFile=/var/run/zabbix/zabbix_agentd.pid
         LogFile=/var/log/zabbix/zabbix_agentd.log
         EnableRemoteCommands=1
-        #AllowRoot=1
+        AllowRoot=1
         MaxLinesPerSecond=2
         Timeout=30
         HostMetadataItem=system.uname
