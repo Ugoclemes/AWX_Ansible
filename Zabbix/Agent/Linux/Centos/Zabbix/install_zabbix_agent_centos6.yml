@@ -1,0 +1,32 @@
+---
+- name: Update Zabbix Agent 5.0.0
+  hosts: all
+  
+  tasks:
+  - name: Install Zabbix Agent
+    shell: "rpm -ivh https://repo.zabbix.com/zabbix/5.0/rhel/6/x86_64/zabbix-agent-5.0.0-1.el6.x86_64.rpm"
+    
+  - name: delete /etc/zabbix/zabbix_agentd.conf
+    file:
+      path: /etc/zabbix/zabbix_agentd.conf
+      state: absent
+
+  - copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
+        dest: /etc/zabbix/
+  
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^Server=127.0.0.1'
+      line: Server={{serverzabbix}},{{ serverproxy }}
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^ServerActive=127.0.0.1'
+      line:  ServerActive={{ serverproxyactive }}
+
+  - name: Start Zabbix agent
+    shell: "/etc/init.d/zabbix-agent start"
+  - name: Enable Service Zabbix Agent
+    shell: "chkconfig zabbix-agent on"
