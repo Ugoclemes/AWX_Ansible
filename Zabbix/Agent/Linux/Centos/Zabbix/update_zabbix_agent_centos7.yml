@@ -21,20 +21,20 @@
       path: /etc/zabbix/zabbix_agentd.conf
       state: absent
 
-  - copy: 
+  - copy:
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
-        dest: /etc/zabbix/
+        dest: C:\Zabbix\application\
   
   - name: Edit zabbix_agentd.conf
     lineinfile:
       path: /etc/zabbix/zabbix_agentd.conf
       regexp: '^Server=127.0.0.1'
-      line: Server=10.45.1.8,10.45.1.3,zbxprd02.qualicorp.com.br
+      line: Server={{serverzabbix}},{{ serverproxy }}
   - name: Edit zabbix_agentd.conf
     lineinfile:
       path: /etc/zabbix/zabbix_agentd.conf
-      regexp: '^ServerActive=127.0.0.1'
-      line: Server=zbxprd02.qualicorp.com.br
+      regexp: '^Server=127.0.0.1'
+      line: Server={{serverzabbix}},{{ serverproxy }}
 
   - name: Start Zabbix Agent
     systemd:
