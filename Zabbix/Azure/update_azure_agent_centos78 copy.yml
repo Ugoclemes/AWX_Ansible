@@ -3,17 +3,16 @@
 
   tasks:
   - copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/setup.py
-        dest: /tmp/
-  - copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/waagent
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/WALinuxAgent
         dest: /tmp/
 
   - name: Install Python setuptools
     shell: "yum install python-setuptools -y"        
   
   - name: Upgrade Azure Agent
-    shell: "python /tmp/setup.py install --force"
+    shell: "python setup.py install --force"
+    args:
+      chdir: /tmp/WALinuxAgent/
 
   - name: Upgrade Azure Agent
     shell: "systemctl restart waagent"
