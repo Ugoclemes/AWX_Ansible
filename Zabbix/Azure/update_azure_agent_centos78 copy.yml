@@ -3,26 +3,26 @@
 
   tasks:
   - name: Download WAagent
-    shell: "wget https://github.com/Azure/WALinuxAgent/archive/develop.zip"
+    command: "wget https://github.com/Azure/WALinuxAgent/archive/develop.zip"
     args:
       chdir: /tmp/
   
   - name: Unzip WAagent
-    shell: "unzip develop.zip"
+    command: "unzip develop.zip"
     args:
       chdir: /tmp/
 
   - name: Install Python setuptools
-    shell: "yum install python-setuptools -y"        
+    command: "yum install python-setuptools -y"        
   
   - name: Upgrade Azure Agent
-    shell: "python setup.py install --force"
+    command: "python setup.py install --force"
     args:
       chdir: /tmp/WALinuxAgent-develop/
   
-  - name: Upgrade Azure Agent
-    shell: "chmod +x /sbin/waagent"
+  - name: Permission Azure Agent
+    command: "chmod +x /sbin/waagent"
 
-  - name: Upgrade Azure Agent
-    shell: "systemctl restart waagent"
+  - name: Start Azure Agent
+    command: "systemctl restart waagent"
     
