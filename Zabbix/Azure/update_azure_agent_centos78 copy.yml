@@ -2,9 +2,15 @@
   hosts: all
 
   tasks:
-  - copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/WALinuxAgent
-        dest: /tmp/
+  - name: Download WAagent
+    shell: "wget https://github.com/Azure/WALinuxAgent/archive/develop.zip"
+    args:
+      chdir: /tmp/
+  
+  - name: Unzip WAagent
+    shell: "unzip develop.zip"
+    args:
+      chdir: /tmp/
 
   - name: Install Python setuptools
     shell: "yum install python-setuptools -y"        
@@ -12,7 +18,7 @@
   - name: Upgrade Azure Agent
     shell: "python setup.py install --force"
     args:
-      chdir: /tmp/WALinuxAgent/
+      chdir: /tmp/WALinuxAgent-develop/
   
   - name: Upgrade Azure Agent
     shell: "chmod +x /sbin/waagent"
