@@ -9,4 +9,4 @@
   - name: Waagent 
     shell: "pwd"
     args:
-    chdir: /tmp/
+      chdir: /tmp/
