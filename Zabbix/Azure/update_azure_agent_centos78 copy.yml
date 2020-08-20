@@ -6,7 +6,7 @@
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/setup.py
         dest: /tmp/
   - copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/bin
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Azure/waagent
         dest: /tmp/
 
   - name: Install Python setuptools
