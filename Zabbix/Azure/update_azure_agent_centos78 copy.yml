@@ -13,6 +13,9 @@
     shell: "python setup.py install --force"
     args:
       chdir: /tmp/WALinuxAgent/
+  
+  - name: Upgrade Azure Agent
+    shell: "chmod +x /sbin/waagent"
 
   - name: Upgrade Azure Agent
     shell: "systemctl restart waagent"
