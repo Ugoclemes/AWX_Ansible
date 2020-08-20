@@ -1,0 +1,22 @@
+- name: Check Version Azure Agent
+  hosts: all
+
+  tasks:
+  - name: Download WAagent
+    command: "wget https://github.com/Azure/WALinuxAgent/archive/release-2.2.50.zip"
+    args:
+      chdir: /tmp/
+ 
+  - name: Unzip WAagent
+    command: "unzip release-2.2.50.zip"
+    args:
+      chdir: /tmp/
+
+  - name: Upgrade Azure Agent
+    command: "{{python}} setup.py install --force"
+    args:
+      chdir: /tmp/WALinuxAgent-release-2.2.50/
+  
+  - name: Start Azure Agent
+    command: "/etc/init.d/waagent restart"
+    
