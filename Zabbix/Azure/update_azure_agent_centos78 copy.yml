@@ -10,7 +10,7 @@
         dest: /tmp/
 
   - name: Install Python setuptools
-    shell: "yum install install python-setuptools"        
+    shell: "yum install python-setuptools -y"        
   
   - name: Upgrade Azure Agent
     shell: "python /tmp/setup.py install --force"

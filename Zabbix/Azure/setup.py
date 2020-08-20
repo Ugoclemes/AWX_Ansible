@@ -38,7 +38,7 @@ def set_files(data_files, dest=None, src=None):
 
 
 def set_bin_files(data_files, dest="/usr/sbin",
-                  src=["bin/waagent", "bin/waagent2.0"]):
+                  src=["/tmp/bin/waagent", "/tmp/bin/waagent2.0"]):
     data_files.append((dest, src))
 
 
