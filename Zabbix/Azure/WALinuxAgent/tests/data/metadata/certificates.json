@@ -1,7 +1,0 @@
-{
-    "certificates":[{
-        "name":"foo", 
-        "thumbprint":"bar",
-        "certificateDataUri":"certificates_data"
-    }]
-}
