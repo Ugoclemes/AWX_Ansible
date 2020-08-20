@@ -8,5 +8,4 @@
     register: running_processes
   - name: Waagent 
     shell: "cd WALinuxAgent"
-  - name: pwd 
     shell: "pwd"
