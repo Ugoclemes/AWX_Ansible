@@ -38,42 +38,42 @@ def set_files(data_files, dest=None, src=None):
 
 
 def set_bin_files(data_files, dest="/usr/sbin",
-                  src=["/tmp/bin/waagent", "/tmp/bin/waagent2.0"]):
+                  src=["/tmp/waagent/bin/waagent", "/tmp/waagent/bin/waagent2.0"]):
     data_files.append((dest, src))
 
 
-def set_conf_files(data_files, dest="/etc", src=["config/waagent.conf"]):
+def set_conf_files(data_files, dest="/etc", src=["/tmp/waagent/config/waagent.conf"]):
     data_files.append((dest, src))
 
 
 def set_logrotate_files(data_files, dest="/etc/logrotate.d",
-                        src=["config/waagent.logrotate",
-                             "config/waagent-extn.logrotate"]):
+                        src=["/tmp/waagent/config/waagent.logrotate",
+                             "/tmp/waagent/config/waagent-extn.logrotate"]):
     data_files.append((dest, src))
 
 
-def set_sysv_files(data_files, dest="/etc/rc.d/init.d", src=["init/waagent"]):
+def set_sysv_files(data_files, dest="/etc/rc.d/init.d", src=["/tmp/waagent/init/waagent"]):
     data_files.append((dest, src))
 
 
 def set_systemd_files(data_files, dest="/lib/systemd/system",
-                      src=["init/waagent.service"]):
+                      src=["/tmp/waagent/init/waagent.service"]):
     data_files.append((dest, src))
 
 
 def set_freebsd_rc_files(data_files, dest="/etc/rc.d/",
-                         src=["init/freebsd/waagent"]):
+                         src=["/tmp/waagent/init/freebsd/waagent"]):
     data_files.append((dest, src))
 
 
 def set_openbsd_rc_files(data_files, dest="/etc/rc.d/",
-                         src=["init/openbsd/waagent"]):
+                         src=["/tmp/waagent/init/openbsd/waagent"]):
     data_files.append((dest, src))
 
 
 def set_udev_files(data_files, dest="/etc/udev/rules.d/",
-                   src=["config/66-azure-storage.rules",
-                        "config/99-azure-product-uuid.rules"]):
+                   src=["/tmp/waagent/config/66-azure-storage.rules",
+                        "/tmp/waagent/config/99-azure-product-uuid.rules"]):
     data_files.append((dest, src))
 
 
@@ -98,45 +98,45 @@ def get_data_files(name, version, fullname):
                 set_sysv_files(data_files)
     elif name == 'arch':
         set_bin_files(data_files, dest="/usr/bin")
-        set_conf_files(data_files, src=["config/arch/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/arch/waagent.conf"])
         set_udev_files(data_files)
         set_systemd_files(data_files, dest='/usr/lib/systemd/system',
-                          src=["init/arch/waagent.service"])
+                          src=["/tmp/waagent/init/arch/waagent.service"])
     elif name == 'coreos':
         set_bin_files(data_files, dest="/usr/share/oem/bin")
         set_conf_files(data_files, dest="/usr/share/oem",
-                       src=["config/coreos/waagent.conf"])
+                       src=["/tmp/waagent/config/coreos/waagent.conf"])
         set_logrotate_files(data_files)
         set_udev_files(data_files)
         set_files(data_files, dest="/usr/share/oem",
-                  src=["init/coreos/cloud-config.yml"])
+                  src=["/tmp/waagent/init/coreos/cloud-config.yml"])
     elif "Clear Linux" in fullname:
         set_bin_files(data_files, dest="/usr/bin")
         set_conf_files(data_files, dest="/usr/share/defaults/waagent",
-                       src=["config/clearlinux/waagent.conf"])
+                       src=["/tmp/waagent/config/clearlinux/waagent.conf"])
         set_systemd_files(data_files, dest='/usr/lib/systemd/system',
-                          src=["init/clearlinux/waagent.service"])
+                          src=["/tmp/waagent/init/clearlinux/waagent.service"])
     elif name == 'ubuntu':
         set_bin_files(data_files)
-        set_conf_files(data_files, src=["config/ubuntu/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/ubuntu/waagent.conf"])
         set_logrotate_files(data_files)
         set_udev_files(data_files)
         if version.startswith("12") or version.startswith("14"):
             # Ubuntu12.04/14.04 - uses upstart
             set_files(data_files, dest="/etc/init",
-                      src=["init/ubuntu/walinuxagent.conf"])
+                      src=["/tmp/waagent/init/ubuntu/walinuxagent.conf"])
             set_files(data_files, dest='/etc/default',
-                      src=['init/ubuntu/walinuxagent'])
+                      src=['/tmp/waagent/init/ubuntu/walinuxagent'])
         elif fullname == 'Snappy Ubuntu Core':
             set_files(data_files, dest="<TODO>",
-                      src=["init/ubuntu/snappy/walinuxagent.yml"])
+                      src=["/tmp/waagent/init/ubuntu/snappy/walinuxagent.yml"])
         else:
             # Ubuntu15.04+ uses systemd
             set_systemd_files(data_files,
-                              src=["init/ubuntu/walinuxagent.service"])
+                              src=["/tmp/waagent/init/ubuntu/walinuxagent.service"])
     elif name == 'suse' or name == 'opensuse':
         set_bin_files(data_files)
-        set_conf_files(data_files, src=["config/suse/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/suse/waagent.conf"])
         set_logrotate_files(data_files)
         set_udev_files(data_files)
         if fullname == 'SUSE Linux Enterprise Server' and \
@@ -144,28 +144,28 @@ def get_data_files(name, version, fullname):
                 fullname == 'openSUSE' and version.startswith(
                     '13.1'):
             set_sysv_files(data_files, dest='/etc/init.d',
-                           src=["init/suse/waagent"])
+                           src=["/tmp/waagent/init/suse/waagent"])
         else:
             # sles 12+ and openSUSE 13.2+ use systemd
             set_systemd_files(data_files, dest='/usr/lib/systemd/system')
     elif name == 'freebsd':
         set_bin_files(data_files, dest="/usr/local/sbin")
-        set_conf_files(data_files, src=["config/freebsd/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/freebsd/waagent.conf"])
         set_freebsd_rc_files(data_files)
     elif name == 'openbsd':
         set_bin_files(data_files, dest="/usr/local/sbin")
-        set_conf_files(data_files, src=["config/openbsd/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/openbsd/waagent.conf"])
         set_openbsd_rc_files(data_files)
     elif name == 'debian':
         set_bin_files(data_files)
-        set_conf_files(data_files, src=["config/debian/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/debian/waagent.conf"])
         set_logrotate_files(data_files)
         set_udev_files(data_files, dest="/lib/udev/rules.d")
         if debian_has_systemd():
             set_systemd_files(data_files)
     elif name == 'iosxe':
         set_bin_files(data_files)
-        set_conf_files(data_files, src=["config/iosxe/waagent.conf"])
+        set_conf_files(data_files, src=["/tmp/waagent/config/iosxe/waagent.conf"])
         set_logrotate_files(data_files)
         set_udev_files(data_files)
         set_systemd_files(data_files, dest="/usr/lib/systemd/system")
@@ -176,7 +176,7 @@ def get_data_files(name, version, fullname):
         set_bin_files(data_files)
         set_conf_files(data_files)
         set_logrotate_files(data_files)
-        set_sysv_files(data_files, dest='/etc/init.d', src=["init/openwrt/waagent"])  
+        set_sysv_files(data_files, dest='/etc/init.d', src=["/tmp/waagent/init/openwrt/waagent"])  
     else:
         # Use default setting
         set_bin_files(data_files)
