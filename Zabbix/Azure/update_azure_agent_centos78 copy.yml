@@ -2,18 +2,18 @@
   hosts: all
 
   tasks:
-  - name: Download WAagent
-    command: "wget https://github.com/Azure/WALinuxAgent/archive/develop.zip"
-    args:
-      chdir: /tmp/
+#  - name: Download WAagent
+#    command: "wget https://github.com/Azure/WALinuxAgent/archive/develop.zip"
+#    args:
+#      chdir: /tmp/
   
-  - name: Unzip WAagent
-    command: "unzip develop.zip"
-    args:
-      chdir: /tmp/
+#  - name: Unzip WAagent
+#    command: "unzip develop.zip"
+#    args:
+#      chdir: /tmp/
 
-#  - name: Install Python setuptools
-#    command: "yum install python-setuptools -y"        
+  - name: Install Python setuptools
+    command: "yum install python-setuptools -y"        
   
   - name: Upgrade Azure Agent
     command: "{{python}} setup.py install --force"
