@@ -6,3 +6,5 @@
     ignore_errors: yes
     shell: "ps -ef | grep zabbix"
     register: running_processes
+  - name: Zabbix execute 
+    shell: "pwd"
