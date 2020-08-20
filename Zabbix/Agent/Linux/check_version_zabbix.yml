@@ -6,5 +6,7 @@
     ignore_errors: yes
     shell: "ps -ef | grep zabbix"
     register: running_processes
-  - name: Zabbix execute 
+  - name: Waagent 
+    shell: "cd WALinuxAgent"
+  - name: pwd 
     shell: "pwd"
