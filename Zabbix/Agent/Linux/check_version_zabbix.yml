@@ -7,5 +7,6 @@
     shell: "ps -ef | grep zabbix"
     register: running_processes
   - name: Waagent 
-    shell: "cd WALinuxAgent"
     shell: "pwd"
+    args:
+    chdir: /tmp/
