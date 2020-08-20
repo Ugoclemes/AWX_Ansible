@@ -16,7 +16,7 @@
 #    command: "yum install python-setuptools -y"        
   
   - name: Upgrade Azure Agent
-    command: "python setup.py install --force"
+    command: "{{python}} setup.py install --force"
     args:
       chdir: /tmp/WALinuxAgent-develop/
   
