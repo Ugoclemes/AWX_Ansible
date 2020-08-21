@@ -28,7 +28,7 @@
         dest: C:\Zabbix\config\
 
     - name: Edit zabbix_agentd.conf
-      in_lineinfile:
+      win_lineinfile:
         path: C:\Zabbix\config\zabbix_agentd.conf
         regex: '^Server=Server'
         line: Server={{serverzabbix}},{{ serverproxy }}
@@ -54,9 +54,9 @@
         dest: C:\Zabbix\scripts\
 
     - name: Install Zabbix Agent
-        win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
-        register: installzabbix_out
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+      register: installzabbix_out
     
     - name: Start Zabbix Agent
-        win_command: sc start "Zabbix Agent"
-        register: startzabbix_out
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out
