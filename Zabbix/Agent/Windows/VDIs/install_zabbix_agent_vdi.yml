@@ -1,0 +1,51 @@
+- name: Install Zabbix Agent - Windows Server
+  hosts: all
+
+  tasks:
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\application
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\config
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\log
+        state: directory
+    - name: Create Folder
+      win_file:
+        path: C:\Zabbix\scripts
+        state: directory
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/VDIs/zabbix_agentd.conf
+        dest: C:\Zabbix\config\
+
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_agentd.exe
+        dest: C:\Zabbix\application\
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_get.exe
+        dest: C:\Zabbix\application\
+    
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/zabbix_sender.exe
+        dest: C:\Zabbix\application\
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/VDIs/session.bat
+        dest: C:\Zabbix\scripts\
+
+    - name: Install Zabbix Agent
+      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+      register: installzabbix_out
+    
+    - name: Start Zabbix Agent
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out
