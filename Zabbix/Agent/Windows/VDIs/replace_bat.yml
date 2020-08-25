@@ -1,0 +1,12 @@
+- name: Replace File .bat - VDIs
+  hosts: all
+
+  tasks:
+    - name: Delete File session.bat
+      win_file:
+        path: C:\Zabbix\scripts\session.bat
+        state: absent
+       
+    - win_copy: session.bat
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/VDIs/session.bat
+        dest: C:\Zabbix\scripts\
