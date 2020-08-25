@@ -7,6 +7,7 @@
         path: C:\Zabbix\scripts\session.bat
         state: absent
        
-    - win_copy: session.bat
+    - name: Copy file session.bat
+      win_copy: 
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/VDIs/session.bat
         dest: C:\Zabbix\scripts\
