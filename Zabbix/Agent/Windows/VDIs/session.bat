@@ -1,3 +1,3 @@
 @echo off
 
-query  session | findstr Ativo | find /v "" /c
+query  session | findstr /I "Ativo Active" | find /v "" /c
