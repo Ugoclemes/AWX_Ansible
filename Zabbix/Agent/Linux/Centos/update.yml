@@ -2,11 +2,11 @@
   hosts: all
 
   tasks:
-    - name: upgrade all packages
-      yum:
-        name: '*'
-        state: latest
-        
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+
   - name: Check update SO
     ignore_errors: yes
     shell: "yum check-update"
