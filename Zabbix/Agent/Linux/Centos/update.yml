@@ -1,11 +1,11 @@
 - name: Check Update SO
   hosts: all
 
-  tasks:
-  - name: upgrade all packages
-    yum:
-      name: '*'
-      state: latest
+#  tasks:
+#  - name: upgrade all packages
+#    yum:
+#      name: '*'
+#      state: latest
 
   - name: Check update SO
     ignore_errors: yes
