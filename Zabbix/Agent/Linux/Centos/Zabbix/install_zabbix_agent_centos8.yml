@@ -18,25 +18,20 @@
       path: /etc/zabbix/zabbix_agentd.conf
       state: absent
   
-  - name: create /etc/zabbix/zabbix_agentd.conf
-    copy:
-      dest: /etc/zabbix/zabbix_agentd.conf
-      owner: root
-      group: root
-      mode: 0644
-      content: |
-        Server={{serverzabbix}},{{ serverproxy }} 
-        ServerActive={{ serverproxyactive }}
-        StartAgents=5
-        DebugLevel=3
-        PidFile=/var/run/zabbix/zabbix_agentd.pid
-        LogFile=/var/log/zabbix/zabbix_agentd.log
-        EnableRemoteCommands=1
-        #AllowRoot=1
-        MaxLinesPerSecond=2
-        Timeout=30
-        HostMetadataItem=system.uname
-        HostnameItem=system.hostname
+ - copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
+        dest: /etc/zabbix/
+  
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^Server=127.0.0.1'
+      line: Server={{serverzabbix}},{{ serverproxy }}
+  - name: Edit zabbix_agentd.conf
+    lineinfile:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: '^ServerActive=127.0.0.1'
+      line:  ServerActive={{ serverproxyactive }}
 
   - name: Start Zabbix Agent
     systemd:
