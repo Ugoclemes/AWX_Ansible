@@ -18,9 +18,9 @@
       path: /etc/zabbix/zabbix_agentd.conf
       state: absent
   
- - copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
-        dest: /etc/zabbix/
+  - copy:
+      src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Linux/zabbix_agentd.conf
+      dest: /etc/zabbix/
   
   - name: Edit zabbix_agentd.conf
     lineinfile:
