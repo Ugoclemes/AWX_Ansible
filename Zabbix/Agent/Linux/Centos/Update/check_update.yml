@@ -2,12 +2,13 @@
   hosts: all
 
   tasks:
-#  - name: Check update SO
-#    ignore_errors: yes
-#    shell: "yum check-update"
-#    register: running_processes
-
   - name: Check update SO
-    yum:
-      list: *
-      register: result
+    ignore_errors: yes
+    shell: "yum check-update"
+    register: running_processes
+    failed_when: yum_result.rc != 100
+
+#  - name: Check update SO
+#    yum:
+#      list: *
+#      register: result
