@@ -9,5 +9,5 @@
 
   - name: Check update SO
     yum:
-      list: '*'
+      list: *
       register: result
