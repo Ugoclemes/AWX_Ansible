@@ -6,7 +6,7 @@
     ignore_errors: yes
     shell: "yum check-update"
     register: running_processes
-    failed_when: running_processes.rc != 100
+    failed_when: running_processes.rc != 100 and != 0
 
 #  - name: Check update SO
 #    yum:
