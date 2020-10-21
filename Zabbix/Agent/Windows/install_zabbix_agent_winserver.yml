@@ -54,7 +54,7 @@
         dest: C:\Zabbix\scripts\
 
     - name: Install Zabbix Agent
-      win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
+      win_command: c
       register: installzabbix_out
     
     - name: Start Zabbix Agent
