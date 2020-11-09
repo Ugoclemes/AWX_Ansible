@@ -11,9 +11,3 @@
     ignore_errors: yes
     shell: "yum check-update"
     register: running_processes
-
-  - name: Restart server
-    ignore_errors: yes
-    shell: "init 6"
-    register: running_processes
-
