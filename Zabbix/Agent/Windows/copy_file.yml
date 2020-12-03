@@ -1,0 +1,7 @@
+- name: Teste de Variavel
+  hosts: all
+
+  tasks:
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/autentic.txt
+        dest: C:\Zabbix\scripts\
