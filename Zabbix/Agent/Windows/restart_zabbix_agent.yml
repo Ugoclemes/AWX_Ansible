@@ -2,7 +2,7 @@
   hosts: all
 
   tasks:
-    - name: Start Zabbix Agent
+    - name: Stop Zabbix Agent
       win_command: sc stop "Zabbix Agent"
       register: startzabbix_out
     
