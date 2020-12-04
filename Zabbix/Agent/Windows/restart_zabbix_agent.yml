@@ -1,0 +1,11 @@
+- name: Restart Zabbix Agent - Windows
+  hosts: all
+
+  tasks:
+    - name: Start Zabbix Agent
+      win_command: sc stop "Zabbix Agent"
+      register: startzabbix_out
+    
+    - name: Start Zabbix Agent
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out
