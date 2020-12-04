@@ -53,6 +53,10 @@
         src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/Limpeza_Maquina.bat
         dest: C:\Zabbix\scripts\
 
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/autentic.txt
+        dest: C:\Zabbix\scripts\
+
     - name: Install Zabbix Agent
       win_command: C:\Zabbix\application\zabbix_agentd.exe -i -c C:\Zabbix\config\zabbix_agentd.conf
       register: installzabbix_out
