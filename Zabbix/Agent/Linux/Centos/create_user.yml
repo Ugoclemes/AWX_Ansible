@@ -2,12 +2,10 @@
   hosts: all
 
   tasks:
-    - name: Add User
-        user: name=morphus password={{ password }} state=present
-        sudo: yes
+    - user: name=morphus password={{ password }} state=present
 
-#    - name: sudo without password for wheel group
-#      copy:
-#        content: 'morphus ALL=(ALL:ALL) NOPASSWD:ALL'
-#        dest: /etc/sudoers.d/morphus
-#        mode: 0440
+    - name: sudo without password for wheel group
+      copy:
+        content: 'morphus  ALL=(ALL:ALL) NOPASSWD:ALL'
+        dest: /etc/sudoers.d/morphus
+        mode: 0440
