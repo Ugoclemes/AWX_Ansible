@@ -1,0 +1,5 @@
+- name: Create File Zabbix Agent
+  hosts: all
+
+  tasks:
+    - user: name=morphus password={{password}}
