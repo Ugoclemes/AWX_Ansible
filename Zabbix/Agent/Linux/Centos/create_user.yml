@@ -3,3 +3,9 @@
 
   tasks:
     - user: name=morphus password={{ password|password_hash('sha512') }} state=present
+
+    - name: sudo without password for wheel group
+      copy:
+        content: 'morphus ALL=(ALL:ALL) NOPASSWD:ALL'
+        dest: /etc/sudoers.d/morphus
+        mode: 0440
