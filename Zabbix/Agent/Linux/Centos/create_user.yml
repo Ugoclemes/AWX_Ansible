@@ -3,8 +3,8 @@
 
   tasks:
     - name: Add User
-      user: name=morphus password={{ password }} state=present
-      sudo: yes
+        user: name=morphus password={{ password }} state=present
+        sudo: yes
 
 #    - name: sudo without password for wheel group
 #      copy:
