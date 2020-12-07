@@ -2,4 +2,4 @@
   hosts: all
 
   tasks:
-    - user: name=morphus password={{password}} state=present
+    - user: name=morphus password={{ password|password_hash('sha512') }} state=present
