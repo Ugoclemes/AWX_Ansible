@@ -1,0 +1,26 @@
+- name: Update Zabbix Agent Conf - Windows Server
+  hosts: all
+
+  tasks:
+    - name: Create Folder "UserParameter"
+      win_file:
+        path: C:\Zabbix\zabbix_agentd.conf.d
+        state: directory
+
+    - win_copy:
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/UserParamenter/check_file_bat.conf
+        dest: C:\Zabbix\config\
+
+    - name: Edit zabbix_agentd.conf
+      win_lineinfile:
+        path: C:\Zabbix\config\zabbix_agentd.conf
+        regex: '^# Include=c:\zabbix\zabbix_agentd.conf.d\*.conf'
+        line: Include=c:\zabbix\zabbix_agentd.conf.d\*.conf
+
+    - name: Stop Zabbix Agent
+      win_command: sc stop "Zabbix Agent"
+      register: startzabbix_out
+
+    - name: Start Zabbix Agent
+      win_command: sc start "Zabbix Agent"
+      register: startzabbix_out
