@@ -8,8 +8,8 @@
         state: directory
 
     - win_copy:
-        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/UserParamenter/check_file_bat.conf
-        dest: C:\Zabbix\config\
+        src: /var/lib/awx/projects/_8__awx_ansible/Zabbix/Agent/Windows/UserParameter/check_file_bat.conf
+        dest: c:\zabbix\zabbix_agentd.conf.d\
 
     - name: Edit zabbix_agentd.conf
       win_lineinfile:
