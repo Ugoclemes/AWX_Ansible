@@ -1,0 +1,14 @@
+- name: Remove User Morphus
+  hosts: all
+
+  tasks:
+    - name: Remove the user 'morphus'
+      user:
+        name: morphus
+        state: absent
+        remove: yes
+
+    - name: delete /etc/sudoers.d/morphus
+      file:
+        path: /etc/sudoers.d/morphus
+        state: absent
