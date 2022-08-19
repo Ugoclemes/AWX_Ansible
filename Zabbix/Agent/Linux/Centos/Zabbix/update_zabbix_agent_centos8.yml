@@ -1,20 +1,26 @@
 ---
-- name: Update Zabbix Agent 5.0.0
+- name: Update Zabbix Agent 5.0.25
   hosts: all
   
   tasks:
   - name: Unistall Zabbix Agent
     shell: rpm -e zabbix-agent-*
+    when:
+      ansible_os_family in [RedHat]
     
   - name: Enable Zabbix Repos
     yum:
       name: https://repo.zabbix.com/zabbix/5.0/rhel/8/x86_64/zabbix-agent-5.0.0-1.el8.x86_64.rpm
       state: present
-  
+    when:
+      ansible_os_family in [RedHat] and ansible_distribution_major_version == "8"
+
   - name: Install Zabbix Agent
     yum:
-      name: zabbix-agent
+      name: zabbix-agent2
       state: present
+    when:
+      ansible_os_family in [RedHat]
     
   - name: delete /etc/zabbix/zabbix_agentd.conf
     file:
